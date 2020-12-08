@@ -1,0 +1,62 @@
+{
+	"info": {
+		"_postman_id": "04c109d7-e69b-4ae4-a648-f6e6fdb665bf",
+		"name": "charles-elimuya-testsuit",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Post1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d1aa5536-6e46-4578-a96a-3aeb2eec6b31",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"1\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validate the Id is equal to 1\", function() {\r",
+							"var jsonData = pm.response.json();\r",
+							"pm.expect(jsonData.id).eq(1);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"To verify that Value of title is not Null\", function() {\r",
+							"var jsonData = pm.response.json();\r",
+							"pm.expect(jsonData.title).not.eq(null);\r",
+							"});\r",
+							"pm.test(\"To verify that Value of body is not Null\", function() {\r",
+							"var jsonData = pm.response.json();\r",
+							"pm.expect(jsonData.body).not.eq(null);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts/1",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
